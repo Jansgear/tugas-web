@@ -1,0 +1,47 @@
+body {
+    display: flex;
+    /* flex-direction: column; */
+    align-items: center;
+    justify-content: center;
+    background-color: #4F709C;
+}
+
+.container {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border:  1px solid black;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 10px 10px rgba(0,0,0,.8);
+}
+
+.container .judul {
+    size: 100px;
+    text-align: center;
+}
+
+
+.container .form form {
+    display: flex;
+    flex-direction: column;
+    width: 98%;
+}
+
+.container .form #dropdown {
+    height: 30px;
+    margin: 10px 0px 10px 0px;
+    font-style: italic;
+}
+
+.container .form #inp {
+    border: none;
+    border-bottom: 1px solid black;
+    margin: 10px 0px 10px;
+    outline: none;
+}
+
+.container .form #sub {
+    font-style: inherit;
+}

@@ -1,0 +1,67 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #4F709C;
+}
+
+
+.container {
+    width: 20%;
+    height: 350px;
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 10px 10px rgba(0,0,0,.8);
+}
+
+.container .judul {
+    margin-top: 50px;
+    text-align: center;
+}
+
+.container .input {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* flex-direction: column;   */
+    /* border: 1px solid black;  */
+    /* height: 100%; */
+}
+
+.container .input #inp {
+    /* width: 90%; */
+    border: none;
+    background: none;
+    outline: none;
+    border-bottom: 1px solid black;
+    height: 30px;
+    margin: 10px;
+    padding: 0px 15px;
+}
+
+.container .input #btn {
+    background: none;
+    width: 100%;
+    height: 40px;
+    margin-top: 10px;
+}
+
+.container .input #btn:hover {
+    box-shadow: 5px rgba(57, 162, 237, 0.8);
+    border:1px solid blue;
+}
+
+.container .input #inp:focus {
+    border: 1px solid blue;
+}
+
+@media only screen and (max-width: 500px) {
+    .container {
+        width: 60%;
+        /* background: black; */
+    }
+
+}

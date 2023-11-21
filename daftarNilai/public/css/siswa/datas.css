@@ -1,0 +1,83 @@
+body {
+    /* background: rgba(#4F709C); */
+    background-color: #4F709C;
+    display: flex;
+    padding: 10px 0px 0px 120px;
+}
+
+.container {
+    width: 100%;
+}
+
+.container .card {
+    width: 60%;
+    border: 1px solid black;
+    background: white;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 10px 10px rgba(0,0,0,.8);
+}
+
+.container .card .atas {
+    display: flex;
+    flex-direction: row;
+}
+
+.container .card .atas .cari {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: #4F709C;
+    width: 30%;
+    height: 30px;
+    border: 1px solid black;
+    padding: 0px 0px 0px 10px;
+    /* margin-left: 64%; */
+}
+
+.container .card .atas .cari input {
+    border: none;
+    outline: none;
+    background: none;
+    color: white;
+}
+
+.container .page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: 20px 0px 20px 0px;
+    /* height: 100%; */
+    /* border: 1px solid black; */
+}
+
+.container .page a{
+    text-decoration: none;
+    color: black;
+    padding: 0px 100px 0px 100px;
+}
+
+.container .card table {
+    width: 100%;
+}
+
+.container .card table, th, td {
+    border: 1px solid black;
+}
+
+.container .card table #edit {
+    background: rgb(108, 196, 108);
+    margin: 5px;
+    width: 50%;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.container .card table #hapus {
+    background: rgb(247, 52, 52);
+    margin: 5px;
+    width: 50%;
+    border: 1px solid black;
+    border-radius: 5px;
+}

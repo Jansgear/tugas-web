@@ -1,0 +1,242 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: IBM Plex Mono,monospace;
+    background: none;
+    /* min-width: 100vh; */
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 50px;
+    background: #213555;
+    padding: 6px 16px;
+    height: 100%;
+    box-shadow: 5px 0 30px rgba(0,0,0,.1);
+    transition: all ease-in-out .7s;
+}
+
+.sidebar.active {
+    width: 240px;
+}
+
+.sidebar input {
+    opacity: 1;
+}
+
+.sidebar.active input {
+    background: none;
+    border: none;
+    outline: none;
+    color: black;
+}
+
+.sidebar .profile {
+    display: flex;
+    top:20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    opacity: 1;
+    transition: all ease-in-out .5s;
+}
+
+.sidebar.active .profile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 25%;
+    opacity: 1;
+    top:20px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.sidebar .logo-conten .logo {
+    display: flex;
+    height: 50px;
+    width: 100%;
+    margin-left: 5px;
+    align-items: center;
+    pointer-events: none;
+    opacity: 0;
+    transition: all ease-in-out .4s;
+}
+
+.sidebar.active .logo-conten .logo {
+    animation: hilang 0.75s;
+    opacity: 1;
+}
+
+.sidebar .logo-conten .logo .logo-nama {
+    font-size: 23px;
+    font-weight: 600;
+    margin: 0px 10px;
+    transition: all ease-in-out 1s;
+}
+
+.sidebar #butt {
+    position: absolute;
+    /* background: white; */
+    color: white;
+    left: 50%;
+    top:6px;
+    font-size: 20px;
+    height: 50px;
+    width: 50px;
+    text-align: center;
+    line-height: 50px;
+    transform: translatex(-50%);
+    transition: 1s;
+}
+
+.sidebar.active #butt {
+    left: 85%;
+}
+
+.sidebar .src {
+    position: relative;
+    height: 50px;
+    width: 100%;
+    margin-top:20px;
+}
+
+.sidebar .src input {
+    position: absolute;
+    height: 100%;
+    width: calc(100% - 20px);
+    left: 0;
+    top: 0;
+    border-radius: 20px;
+    outline: none;
+    border: none;
+    background: lightblue;
+    padding-left: 50px;
+    font-size: 15px;
+    color: white;
+    box-shadow: 6px 6px rgba(0,0,0,.8);
+    transition: all ease-in-out 1s;
+}
+
+.sidebar .scr .bx-search {
+    position: absolute;
+    /* z-index: 99; */
+    font-size: 22px;
+    color: white;
+    transition: all ease-in-out 1s;
+}
+
+.sidebar .scr .bx-search:hover {
+    color: lightblue;
+}
+
+.sidebar .scr .bx-search:hover ~ input {
+    background: white;
+}
+
+.sidebar i {
+    height: 50px;
+    min-width: 50px;
+    border-radius:12px ;
+    line-height: 50px;
+    text-align: center;
+    font-size: 25px;
+}
+
+.sidebar ul {
+    margin-top: 20px;
+    transition: all ease-in-out 1s;
+}
+
+.sidebar ul li {
+    position: relative;
+    height: 50px;
+    width: 100%;
+    margin: 0;
+    margin: 10px 0px 10px 0px;
+    list-style: none;
+    line-height: 50px;
+    transition: all ease-in-out 1s;
+}
+
+.sidebar ul li a {
+    color: white;
+    display: flex;
+    text-decoration: none;
+    border-radius: 10px;
+    font-size: 20px;
+    white-space: nowrap;
+    transition: all ease-in-out 1s;
+}
+
+.sidebar ul li a:hover {
+    color: white;
+    background-color: #4F709C;
+    box-shadow: 5px 5px rgba(0,0,0,.8);
+}
+
+.sidebar ul li a .list-name {
+    display: none;
+}
+
+.sidebar.active ul li a .list-name {
+    animation: hilang .5s;
+    display: flex;
+}
+
+.sidebar ul li .tooltip {
+    position: absolute;
+    left: 140px;
+    top: 0;
+    transform: translate(-45%, -50%);
+    border-radius: 10px;
+    height: 35px;
+    width: 130px;
+    background: #ffffff;
+    line-height: 35px;
+    text-align: center;
+    font-size: 13px;
+    display: block;
+    color: black;
+    box-shadow: 0 5px 10px rgba(0,0,0,.2);
+    pointer-events: none;
+    opacity: 0;
+    transition: all 1s ease;
+}
+
+.sidebar.active ul li .tooltip {
+    display: none;
+}
+
+.sidebar ul li:hover .tooltip {
+    opacity: 1;
+    top: 50%;
+}
+
+@keyframes hilang {
+    0% {
+        opacity: 0;
+    }
+
+    25% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    75% {
+        opacity: 0.5;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}

@@ -1,0 +1,98 @@
+body {
+    /* background: rgba(#4F709C); */
+    background-color: #4F709C;
+    display: flex;
+    padding: 10px 0px 0px 100px;
+}
+.container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    border: 1px solid black;
+    padding: 10px;
+}
+
+.container .kiri {
+    width: 65%;
+    border: 1px solid black;
+    padding: 10px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 10px 10px rgba(0,0,0,.8);
+}
+
+.container .kiri .card {
+    display: flex;
+    flex-direction: column;
+    background-color: #4F709C;
+    width: 80%;
+    height: 70px;
+    border: 1px solid black;
+    border-radius: 10px;
+    margin: 20px;
+    padding: 10px;
+    box-shadow: 10px 10px rgba(0,0,0,.8);
+}
+
+.container .kiri .card input {
+    color: white;
+    border: none;
+    outline: none;
+    background: none;
+}
+
+.container .kanan {
+    border: 1px solid black;
+    width: 30%;
+    margin-left: 30px;
+    background: white;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 10px 10px rgba(0,0,0,.8);
+}
+
+.container .kanan .img {
+    height: 100px;
+    border: 1px solid black;
+}
+
+.container .kanan .img img {
+    border-radius: 50%;
+}
+
+.container .kanan .biodata {
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+    border: 1px solid black;
+    /* height: 100px; */
+    padding: 10px;
+}
+
+.container .kanan .biodata input {
+    height: 30px;
+    padding: 10px;
+    border: none;
+    outline: none;
+}
+
+@media only screen and (max-width: 500px) {
+    .container {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        /* padding: 10px; */
+    }
+    
+    .container .kiri {
+        width: 90%;
+        height: 100vh;
+        margin-bottom: 20px;
+    }
+
+    .container .kanan {
+        width: 90%;
+        margin: 0;
+    }
+}
+
