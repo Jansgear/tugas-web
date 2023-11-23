@@ -3,10 +3,10 @@
 // @include('../../support/database.php');
 // session_start();
 
-$datanilai = "SELECT grades.*, student.nama, mapel.deskripsi FROM grades INNER JOIN student ON grades.student_id = student.id INNER JOIN mapel ON grades.subject_id = mapel.id";
-// $datanilai = "SELECT * FROM grades";
-$result = mysqli_query($koneksi, $datanilai) or die($koneksi);
-// $row = mysqli_fetch_array($result);
+// $datanilai = "SELECT grades.*, student.nama, mapel.deskripsi FROM grades INNER JOIN student ON grades.student_id = student.id INNER JOIN mapel ON grades.subject_id = mapel.id";
+// // $datanilai = "SELECT * FROM grades";
+// $result = mysqli_query($koneksi, $datanilai) or die($koneksi);
+// // $row = mysqli_fetch_array($result);
 
 
 if (isset($_GET['hapus'])) {
@@ -134,96 +134,52 @@ if (isset($_GET['hapus'])) {
                     if (isset($_GET['cari'])) {
                         // and level_user= '2'
                         $cari = $_GET['cari'];
-                        $filterp = mysqli_query($koneksi, "SELECT grades.*, student.nama, mapel.deskripsi FROM grades INNER JOIN student ON grades.student_id = student.id INNER JOIN mapel ON grades.subject_id = mapel.id WHERE (grades.id LIKE '%" . $cari . "%' or student.nama LIKE '%" . $cari . "%' or grades.subject_id LIKE '%" . $cari . "%' ) ");
+                        $data = mysqli_query($koneksi, "SELECT grades.*, student.nama, mapel.deskripsi FROM grades INNER JOIN student ON grades.student_id = student.id INNER JOIN mapel ON grades.subject_id = mapel.id WHERE (grades.id LIKE '%" . $cari . "%' or student.nama LIKE '%" . $cari . "%' or grades.subject_id LIKE '%" . $cari . "%' ) ");
+                    } else {
+                        $data = mysqli_query($koneksi, "SELECT grades.*, student.nama, mapel.deskripsi FROM grades INNER JOIN student ON grades.student_id = student.id INNER JOIN mapel ON grades.subject_id = mapel.id");
+                    }
 
-                        $no = 1;
-                        while ($row = mysqli_fetch_array($filterp)) { ?>
+                    $no = 1;
+                    while ($row = mysqli_fetch_array($data)) {
+                        ?>
 
+                        <td>
+                            <?php echo $no ?>
+                        </td>
 
+                        <td>
+                            <?php echo $row['nama']; ?>
+                        </td>
 
+                        <td>
+                            <?php echo $row['deskripsi']; ?>
+                        </td>
+
+                        <td>
+                            <?php echo $row['jenis_nilai'] ?>
+                        </td>
+
+                        <td>
+                            <?php echo $row['nilai']; ?>
+                        </td>
+
+                        <?php if ($_SESSION['level'] == '1') { ?>
                             <td>
-                                <?php echo $no ?>
+                                <form action="editdata.php" method="get" class="button">
+                                    <input type="hidden" name="id" value="<?php echo $row['id'] ?>">
+                                    <input type="submit" name="edit" id="edit" value="edit" style="cursor:pointer;">
+                                </form>
+                                <form action="" action="get" class="button">
+                                    <input type="hidden" name="id" value="<?php echo $row['id'] ?>">
+                                    <input type="submit" name="hapus" id="hapus" value="hapus" style="cursor:pointer;">
+                                </form>
+
                             </td>
+                        <?php } ?>
 
-                            <td>
-                                <?php echo $row['nama']; ?>
-                            </td>
+                    </tr>
 
-                            <td>
-                                <?php echo $row['deskripsi']; ?>
-                            </td>
-
-                            <td>
-                                <?php echo $row['jenis_nilai'] ?>
-                            </td>
-
-                            <td>
-                                <?php echo $row['nilai']; ?>
-                            </td>
-
-                            <?php if ($_SESSION['level'] == '1') { ?>
-                                <td>
-                                    <form action="editdata.php" method="get" class="button">
-                                        <input type="hidden" name="id" value="<?php echo $row['id'] ?>">
-                                        <input type="submit" name="edit" id="edit" value="edit" style="cursor:pointer;">
-                                    </form>
-                                    <form action="" action="get" class="button">
-                                        <input type="hidden" name="id" value="<?php echo $row['id'] ?>">
-                                        <input type="submit" name="hapus" id="hapus" value="hapus" style="cursor:pointer;">
-                                    </form>
-
-                                </td>
-                            <?php } ?>
-
-                        </tr>
-
-                        <?php $no++;
-                        } ?>
-
-                <?php } else if (isset($_GET['cari']) == null) {
-                        if (mysqli_num_rows($result) > 0) {
-                            $no = 1;
-                            while ($row = mysqli_fetch_array($result)) { ?>
-
-                                <tr>
-                                    <td>
-                                    <?php echo $no ?>
-                                    </td>
-
-                                    <td>
-                                    <?php echo $row['nama']; ?>
-                                    </td>
-
-                                    <td>
-                                    <?php echo $row['deskripsi']; ?>
-                                    </td>
-
-                                    <td>
-                                    <?php echo $row['jenis_nilai'] ?>
-                                    </td>
-
-                                    <td>
-                                    <?php echo $row['nilai']; ?>
-                                    </td>
-
-                                <?php if ($_SESSION['level'] == '1') { ?>
-                                        <td>
-                                            <form action="editdata.php" method="get" class="button">
-                                                <input type="hidden" name="id" value="<?php echo $row['id'] ?>">
-                                                <input type="submit" name="edit" id="edit" value="edit" style="cursor:pointer;">
-                                            </form>
-                                            <form action="" action="get" class="button">
-                                                <input type="hidden" name="id" value="<?php echo $row['id'] ?>">
-                                                <input type="submit" name="hapus" id="hapus" value="hapus" style="cursor:pointer;">
-                                            </form>
-                                        </td>
-                                <?php } ?>
-
-                                </tr>
-
-                            <?php $no++;
-                            }
-                        }
+                    <?php $no++;
                     } ?>
             </table>
         </div>

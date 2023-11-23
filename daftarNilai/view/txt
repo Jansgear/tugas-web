@@ -1,0 +1,48 @@
+ else if (isset($_GET['cari']) == null) {
+                        if (mysqli_num_rows($result) > 0) {
+                            $no = 1;
+                            while ($row = mysqli_fetch_array($result)) { ?>
+
+                            <tr>
+                                <td>
+                                <?php echo $no ?>
+                                </td>
+
+                                <td>
+                                <?php echo $row['nomor_induk']; ?>
+                                </td>
+
+                                <td>
+                                <?php echo $row['nama']; ?>
+                                </td>
+
+                                <td>
+                                <?php echo $row['alamat'] ?>
+                                </td>
+
+                                <td>
+                                <?php echo $row['tanggal_lahir']; ?>
+                                </td>
+
+                            <?php if ($_SESSION['level'] == '1') { ?>
+                                    <td>
+                                        <form action="editdata.php" method="get" class="button">
+                                            <input type="hidden" name="id" value="<?php echo $row['id'] ?>">
+                                            <input type="submit" name="edit" id="edit" value="edit" style="cursor:pointer;">
+                                        </form>
+                                        <form action="" action="get" class="button">
+                                            <input type="hidden" name="id" value="<?php echo $row['id'] ?>">
+                                            <input type="submit" name="hapus" id="hapus" value="hapus" style="cursor:pointer;">
+                                        </form>
+
+                                    </td>
+                            <?php } ?>
+                            </tr>
+
+                    <?php }
+                        }
+                    } else { ?>
+                    <tr>
+                        <td colspan='7'>Tidak ada data ditemukan</td>
+                    </tr>
+            <?php } ?>

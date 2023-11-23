@@ -55,7 +55,7 @@ if ($_SESSION['login'] == null) {
         <div class="kanan">
             <div class="profile">
                 <?php
-                $datasiswa = "SELECT * FROM student";
+                $datasiswa = "SELECT * FROM user WHERE id = '$id' ";
                 $result2 = mysqli_query($koneksi, $datasiswa) or die($koneksi);
                 $row = mysqli_fetch_array($result2);
 
@@ -63,11 +63,8 @@ if ($_SESSION['login'] == null) {
                 <div class="img"></div>
                 <div class="biodata">
 
-                    <input type="text" name="nomor_induk" value="Nomor Induk : <?php echo $row['nomor_induk'] ?>" id=""
-                        readonly>
-                    <input type="text" name="" value="Nama : <?php echo $row['nama'] ?>" id="" readonly>
-                    <input type="text" name="" value="<?php echo $row['alamat'] ?>" id="" readonly>
-                    <input type="text" name="" value="<?php echo $row['tanggal_lahir'] ?>" id="" readonly>
+                    <input type="text" name="nomor_induk" value="id : <?php echo $row['id'] ?>" id="" readonly>
+                    <input type="text" name="" value="Nama : <?php echo $row['username'] ?>" id="" readonly>
 
                 </div>
             </div>
